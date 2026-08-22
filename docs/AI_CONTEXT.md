@@ -1,15 +1,15 @@
 # AiPayWorlds — AI Context Snapshot
 
-> This file is the compact recovery snapshot for any future development assistant. It is intentionally factual and project-focused.
+> Compact recovery snapshot for any future development assistant. Factual and project-focused; not a chat transcript.
 
-**Context version:** 0.1  
+**Context version:** 0.2  
 **Last updated:** 2026-08-22  
 **Repository:** BogdanXI/AiPayWorlds  
 **Maintainer:** BogdanXI
 
 ## Mission
 
-Build useful infrastructure for autonomous software agents to discover services, make bounded machine-to-machine payments, receive results, and maintain auditable settlement records.
+Build useful infrastructure for autonomous software agents to discover services, operate under bounded spending policies, make machine-to-machine payments, receive verifiable results, and maintain auditable receipts/reputation.
 
 ## Core principle
 
@@ -19,34 +19,39 @@ Do not build a blockchain for its own sake. Prove the product need first. A dedi
 
 Discovery + architecture research + environment preparation.
 
-## Current hypothesis
+## Current product hypothesis
 
-Agent commerce needs reliable discovery, identity/trust, bounded authorization, payment, settlement, receipts and dispute/risk controls. A blockchain may provide programmable settlement and open interoperability, but it is not automatically required.
+The strongest current wedge is **policy-controlled autonomous spending plus trust/verification**.
 
-## Current MVP hypothesis
+Workflow:
 
-1. Agent discovers a paid service.
-2. Service publishes price/payment requirements.
-3. Agent operates under a spending cap.
-4. Agent authorizes payment.
-5. Service verifies payment.
-6. Agent receives the result.
-7. A receipt and settlement record are retained.
+`discover → quote → identity/trust → policy check → bounded authorization → payment → result verification → receipt → reputation`
 
-## Architecture status
+The user should be able to define service/vendor/task limits, price limits, allowed assets/networks and human-approval thresholds.
 
-`HYPOTHESIS`: EVM-compatible settlement / L2 / dedicated chain.
+## Current architecture status
 
-Candidate approaches must be compared before approval, including:
-- existing L2/application deployment;
-- OP Stack;
-- Arbitrum technology;
-- Polygon CDK/AggLayer;
-- other suitable rollup/appchain approaches.
+`UNDER_RESEARCH`: use an existing EVM network for the first MVP. A dedicated L2/appchain remains optional.
+
+Candidate future stacks: OP Stack, Arbitrum technology, Polygon CDK/AggLayer and other suitable approaches.
+
+Do not approve a chain until the comparison matrix and product requirements justify it.
+
+## Existing standards to evaluate
+
+- x402: HTTP-native agent payment rail.
+- Google AP2/A2A: payment authorization and agent communication.
+- ERC-8004: portable agent identity, reputation and validation.
+
+Prefer integration over reinvention unless a measured gap requires new protocol work.
+
+## Security focus
+
+Treat payment-intent binding, spending caps, expiry, nonce/replay protection, idempotency, recipient binding, concurrency/race handling, quote expiry, receipt integrity and dispute/refund semantics as first-class requirements.
 
 ## Token status
 
-No native token is approved. Any token must have demonstrated utility, economic-security purpose, defensible distribution/incentive design and an appropriate legal path.
+No native token approved. No ticker, issuance, sale or distribution approved.
 
 ## Local development machine
 
@@ -55,13 +60,9 @@ No native token is approved. Any token must have demonstrated utility, economic-
 - ~5.8 GiB RAM
 - 2 GiB swap
 - 1 TB Toshiba SATA HDD
-- ~424 GB free on the existing Xubuntu filesystem
+- ~424 GB free on existing Xubuntu filesystem
 - Do not repartition at this stage
 - Do not run a production blockchain node locally
-
-## Project roles
-
-Architecture, product, engineering, blockchain, AI-agent systems, DevOps/SRE, QA, security, economics/tokenomics, research, funding/growth and legal/compliance analysis are treated as project workstreams. External qualified professionals remain necessary for formal legal advice and appropriate independent security audits.
 
 ## Public/private boundary
 
@@ -69,33 +70,37 @@ Public: source code, public architecture, public documentation, verified researc
 
 Private/outside this public repository: credentials, seed phrases, private keys, personal data, confidential contracts, private negotiations, unpublished vulnerability details and other sensitive information.
 
-## Required behavior when context is restored
+Do not falsely claim authorship, audits, partnerships, funding or security properties. AI assistance is internal tooling; legally required or materially relevant disclosures must remain truthful.
+
+## Decision summary
+
+- Product-first development: APPROVED.
+- Existing EVM infrastructure first for MVP: APPROVED strategy.
+- Dedicated L2: UNDER_RESEARCH.
+- Generic agent-payment rail as product: REJECTED for MVP strategy.
+- Policy-controlled spending/trust layer: UNDER_RESEARCH.
+- Native token: unapproved.
+- No disk repartitioning: APPROVED.
+- Local PC is development only: APPROVED.
+
+## Context restoration protocol
 
 1. Read this file.
-2. Read `PROJECT_STATE.md`, `PROJECT_RULES.md`, `DECISIONS.md` and the relevant current documents.
-3. Compare the snapshot with the current repository and recent history.
-4. Report any drift, contradiction or missing information.
+2. Read `PROJECT_STATE.md`, `PROJECT_RULES.md`, `DECISIONS.md`, `RESEARCH.md` and relevant current documents.
+3. Compare the snapshot with current repository contents and recent Git history.
+4. Report drift, contradictions and missing information.
 5. Do not make consequential changes until contradictions are resolved.
-
-## Current decisions
-
-- Product-first development.
-- No disk repartitioning now.
-- Local PC is a development machine, not a production node.
-- Dedicated chain remains unapproved.
-- Native token remains unapproved.
-- Public repository must not contain secrets or private project information.
 
 ## Open questions
 
-- Which user segment has the strongest immediate pain?
-- Which agent-payment standards should be adopted rather than recreated?
-- Is an existing L2 sufficient?
-- What trust/reputation primitive is actually necessary?
+- Which exact first user segment has painful, recurring autonomous-spending problems?
+- What measurable advantage does our policy layer provide over existing x402/AP2/A2A tooling?
+- What trust signal is actually useful enough to pay for?
 - What service category makes the best first marketplace?
-- What are the minimum viable payment and dispute mechanisms?
-- What legal structure and jurisdiction are appropriate if the project becomes a commercial crypto network?
+- Is escrow required for that service category?
+- Which existing EVM network is best for the MVP?
+- What legal structure/jurisdiction is appropriate if the project becomes a commercial crypto network?
 
 ## Next action
 
-Complete the architecture/market research checkpoint and record findings in `RESEARCH.md` and decisions in `DECISIONS.md` before installing the heavier blockchain toolchain.
+Define the first user segment + concrete problem + success metric, then design the smallest end-to-end prototype before installing the heavier blockchain stack.
