@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AiPayWorlds — Command Center</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">A</div>
+        <div><strong>AiPayWorlds</strong><span>COMMAND CENTER</span></div>
+      </div>
+      <nav id="nav">
+        <button class="nav-item active" data-page="overview"><span>◈</span>Обзор</button>
+        <button class="nav-item" data-page="learning"><span>◫</span>Обучение</button>
+        <button class="nav-item" data-page="memory"><span>◉</span>Память</button>
+        <button class="nav-item" data-page="sessions"><span>↺</span>Runs</button>
+        <button class="nav-item" data-page="roadmap"><span>⌁</span>Roadmap</button>
+        <button class="nav-item" data-page="terminal"><span>›_</span>Терминал</button>
+        <button class="nav-item" data-page="security"><span>◇</span>Безопасность</button>
+        <button class="nav-item" data-page="research"><span>⌕</span>Исследования</button>
+      </nav>
+      <div class="sidebar-foot">
+        <div class="status-dot"></div><span>LOCAL MODE</span>
+        <small>Данные интерфейса хранятся локально.</small>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div><div class="eyebrow">PROJECT CONTROL</div><h1 id="pageTitle">Обзор проекта</h1></div>
+        <div class="top-actions"><span class="pill">PHASE 0 · RESEARCH</span><button class="icon-btn" id="themeBtn" title="Переключить режим">◐</button></div>
+      </header>
+
+      <section id="page-overview" class="page active">
+        <div class="hero-grid">
+          <div class="hero-card">
+            <div class="eyebrow">MISSION</div>
+            <h2>Построить публичную блокчейн-инфраструктуру с реальной экономической ценностью.</h2>
+            <p>Сначала доказать рынок и ценность. Затем выбрать архитектуру собственного chain. Не строить технологию ради технологии.</p>
+            <div class="hero-actions"><button class="primary" data-go="learning">Продолжить обучение →</button><button class="secondary" data-go="memory">Проверить память</button></div>
+          </div>
+          <div class="metric-card"><span>ГОТОВНОСТЬ</span><strong>12%</strong><div class="progress"><i style="width:12%"></i></div><small>Исследование → архитектура → MVP → testnet</small></div>
+        </div>
+        <div class="section-head"><div><div class="eyebrow">CONTROL BOARD</div><h3>Состояние систем</h3></div><span class="muted">последний checkpoint: MEMORY v1</span></div>
+        <div class="cards">
+          <article class="card"><div class="card-top"><span>ПАМЯТЬ</span><b class="ok">ONLINE</b></div><strong>AI Context v0.3</strong><p>Главный снимок состояния проекта.</p><button class="text-btn" data-go="memory">Открыть →</button></article>
+          <article class="card"><div class="card-top"><span>ПРИВАТНОСТЬ</span><b class="ok">CLEAN</b></div><strong>Public / Private</strong><p>Внутренняя кухня не должна жить в public repo.</p><button class="text-btn" data-go="security">Проверить →</button></article>
+          <article class="card"><div class="card-top"><span>BLOCKCHAIN</span><b class="warn">RESEARCH</b></div><strong>L2 / L1 / Appchain</strong><p>Архитектура пока не зафиксирована.</p><button class="text-btn" data-go="research">Исследовать →</button></article>
+          <article class="card"><div class="card-top"><span>ФИНАНСИРОВАНИЕ</span><b class="neutral">TARGET</b></div><strong>$1,000,000</strong><p>Цель финансирования, не обещание результата.</p><button class="text-btn" data-go="roadmap">Стратегия →</button></article>
+        </div>
+        <div class="section-head"><div><div class="eyebrow">SYSTEM FLOW</div><h3>Как мы работаем</h3></div></div>
+        <div class="flow"><div><b>01</b><span>Research</span><small>рынок, конкуренты, regulation</small></div><div><b>02</b><span>Decision</span><small>architecture + economics</small></div><div><b>03</b><span>Build</span><small>код маленькими проверяемыми шагами</small></div><div><b>04</b><span>Verify</span><small>tests + security + audit</small></div><div><b>05</b><span>Scale</span><small>users + ecosystem + funding</small></div></div>
+      </section>
+
+      <section id="page-learning" class="page">
+        <div class="section-head"><div><div class="eyebrow">LEARNING OS</div><h3>Учимся параллельно с проектом</h3></div><span class="pill">0 / 12 modules</span></div>
+        <div class="learning-grid">
+          <article class="lesson active"><span>01</span><div><b>Linux & терминал</b><p>Файлы, команды, права, процессы, Git.</p></div><em>START</em></article>
+          <article class="lesson"><span>02</span><div><b>Git & GitHub</b><p>commit, branch, pull, rollback, history.</p></div><em>LOCKED</em></article>
+          <article class="lesson"><span>03</span><div><b>Blockchain basics</b><p>transactions, blocks, nodes, consensus.</p></div><em>LOCKED</em></article>
+          <article class="lesson"><span>04</span><div><b>EVM & smart contracts</b><p>accounts, gas, Solidity, testing.</p></div><em>LOCKED</em></article>
+          <article class="lesson"><span>05</span><div><b>L2 architecture</b><p>sequencer, settlement, DA, bridges.</p></div><em>LOCKED</em></article>
+          <article class="lesson"><span>06</span><div><b>Security</b><p>threat modeling, keys, contracts, incident response.</p></div><em>LOCKED</em></article>
+          <article class="lesson"><span>07</span><div><b>AI agents</b><p>identity, tools, autonomy, payments.</p></div><em>LOCKED</em></article>
+          <article class="lesson"><span>08</span><div><b>Economics</b><p>fees, incentives, token design, treasury.</p></div><em>LOCKED</em></article>
+        </div>
+      </section>
+
+      <section id="page-memory" class="page">
+        <div class="section-head"><div><div class="eyebrow">MEMORY SYSTEM</div><h3>Проект помнит, даже если чат забудет</h3></div><span class="ok badge">AI CONTEXT v0.3</span></div>
+        <div class="memory-map"><div class="memory-node main-node"><b>AI_CONTEXT.md</b><small>оперативный snapshot</small></div><div class="memory-line"></div><div class="memory-cols"><article><b>PROJECT_STATE</b><p>Что сейчас происходит.</p></article><article><b>DECISIONS</b><p>Почему приняли решение.</p></article><article><b>SESSION_LOG</b><p>Что делали по runs.</p></article><article><b>RECOVERY_RU</b><p>Как восстановиться.</p></article></div></div>
+        <div class="warning-box"><b>Правило восстановления</b><p>В новом чате сначала передай AI_CONTEXT.md и скажи: «ВОССТАНОВЛЕНИЕ AIPAYWORLDS». AI должен сначала сравнить контекст с репозиторием и сообщить о расхождениях. Никаких изменений до подтверждения.</p></div>
+      </section>
+
+      <section id="page-sessions" class="page">
+        <div class="section-head"><div><div class="eyebrow">RUN LOG</div><h3>Журнал рабочих циклов</h3></div><button class="secondary" id="copyRun">Скопировать шаблон RUN</button></div>
+        <div class="timeline"><div class="run"><span>RUN-0001</span><div><b>Memory & Privacy Architecture</b><p>Создана модель public/private, AI context и recovery.</p></div><em>DONE</em></div><div class="run"><span>RUN-0002</span><div><b>Market Research Baseline</b><p>Проверены agent payments, x402, AP2/A2A и L2 варианты.</p></div><em>DONE</em></div><div class="run"><span>RUN-NEXT</span><div><b>Monetizable Markets</b><p>Сравнить рынки, где люди уже готовы платить.</p></div><em>READY</em></div></div>
+        <textarea id="runTemplate" class="terminal-output" readonly>RUN-XXXX
+Date:
+Objective:
+Parallel workstreams:
+Completed:
+Decisions:
+Files changed:
+Research:
+Risks:
+Questions:
+Next action:
+Checkpoint:</textarea>
+      </section>
+
+      <section id="page-roadmap" class="page">
+        <div class="section-head"><div><div class="eyebrow">ROADMAP</div><h3>От нуля до собственного публичного chain</h3></div></div>
+        <div class="roadmap"><div class="road active"><b>0</b><div><h4>Research & Memory</h4><p>Память, privacy, рынок, economics.</p></div><span>NOW</span></div><div class="road"><b>1</b><div><h4>Product hypothesis</h4><p>Первый пользователь, боль, willingness to pay.</p></div><span>NEXT</span></div><div class="road"><b>2</b><div><h4>Protocol prototype</h4><p>Минимальная сеть/протокол и test environment.</p></div><span>PLANNED</span></div><div class="road"><b>3</b><div><h4>Public testnet</h4><p>Nodes, explorer, wallet, faucets, docs.</p></div><span>PLANNED</span></div><div class="road"><b>4</b><div><h4>Mainnet readiness</h4><p>Security, economics, governance, legal.</p></div><span>FUTURE</span></div></div>
+      </section>
+
+      <section id="page-terminal" class="page">
+        <div class="section-head"><div><div class="eyebrow">TERMINAL COACH</div><h3>Команды под копирование</h3></div></div>
+        <div class="command-card"><div><span class="eyebrow">SAFE DIAGNOSTIC</span><h4>Проверка системы</h4><p>Эта команда только читает характеристики компьютера.</p></div><button class="copy" data-copy="lsb_release -a 2>/dev/null && echo && lscpu && echo && free -h && echo && lsblk -o NAME,SIZE,TYPE,FSTYPE,MOUNTPOINTS,MODEL && echo && df -hT && echo && lspci | grep -Ei 'vga|3d|display'">COPY</button><pre>lsb_release -a 2>/dev/null
+lscpu
+free -h
+lsblk -o NAME,SIZE,TYPE,FSTYPE,MOUNTPOINTS,MODEL
+df -hT
+lspci | grep -Ei 'vga|3d|display'</pre></div>
+        <div class="command-card"><div><span class="eyebrow">EMERGENCY</span><h4>Если команда «зависла»</h4><p>Остановить текущую команду.</p></div><button class="copy" data-copy="Ctrl+C">COPY</button><pre>Нажми: Ctrl + C</pre></div>
+        <div class="command-card"><div><span class="eyebrow">EDITOR</span><h4>nano: сохранить и выйти</h4><p>Будем использовать это объяснение каждый раз, когда даём nano-команды.</p></div><pre>Ctrl + O  → сохранить
+Enter     → подтвердить имя
+Ctrl + X  → выйти
+
+Если передумал: Ctrl + X → N</pre></div>
+      </section>
+
+      <section id="page-security" class="page">
+        <div class="section-head"><div><div class="eyebrow">SECURITY</div><h3>Щит проекта</h3></div></div>
+        <div class="security-grid"><article><b>🔒 SECRETS</b><strong>0 known</strong><p>Ключи и credentials не храним в public repo.</p></article><article><b>🌐 PUBLIC</b><strong>main only</strong><p>Публичная ветка не является private vault.</p></article><article><b>🧠 MEMORY</b><strong>Externalized</strong><p>Память проекта принадлежит владельцу, а не модели.</p></article><article><b>🛡️ RELEASE</b><strong>BLOCKED</strong><p>Token/mainnet запрещены до прохождения checkpoints.</p></article></div>
+      </section>
+
+      <section id="page-research" class="page">
+        <div class="section-head"><div><div class="eyebrow">RESEARCH LAB</div><h3>Что сейчас исследуем</h3></div><span class="pill">NEXT: MONEY</span></div>
+        <div class="research-table"><div class="r-head"><span>Направление</span><span>Почему интересно</span><span>Статус</span></div><div><b>AI agent economy</b><span>машины как экономические субъекты</span><em>RESEARCH</em></div><div><b>Stablecoin settlement</b><span>реальные платежи и cross-border</span><em>RESEARCH</em></div><div><b>DePIN / compute</b><span>физические ресурсы и GPU</span><em>QUEUED</em></div><div><b>B2B escrow</b><span>деньги + доверие + автоматизация</span><em>QUEUED</em></div><div><b>Identity / reputation</b><span>доказуемая история поведения</span><em>QUEUED</em></div></div>
+      </section>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
