@@ -1,6 +1,6 @@
 # AiPayWorlds — Project Rules
 
-**Status:** Foundational draft 0.2  
+**Status:** Foundational draft 0.3  
 **Owner / Maintainer:** BogdanXI  
 **Date:** 2026-08-22
 
@@ -83,7 +83,13 @@ Major changes require an update to `DECISIONS.md` and `PROJECT_STATE.md`. Securi
 When context is restored from `AI_CONTEXT.md`, first verify it against the repository. If contradictions are found, stop before making consequential changes.
 
 ## 16. Dashboard
-`dashboard/` is a fully local, dependency-free development command center. It is a user interface for project state, learning, memory, runs, roadmap, terminal guidance, security and research. It must not require an external CDN or network connection to render.
+The public repository may contain a non-sensitive prototype, public architecture, interface contracts, documentation and reproducible open components for the dashboard.
+
+The long-term personal operator application is a separate desktop application and is intended to live in a private repository. Private adapters, local operational configuration, personal data, credentials, signing interfaces and other sensitive operator functionality must not be moved into the public repository.
+
+The dashboard architecture is offline-first: core rendering, navigation, local documentation, local assets and non-network-dependent calculations must work without an internet connection. External services are optional adapters and must fail gracefully.
+
+The public repository must never require an external CDN for its dashboard prototype to render.
 
 ## 17. Funding
 Target zero-cost development first: open-source tooling, testnets, grants, hackathons, ecosystem programs and credits. No fundraising or token sale is assumed until the product and legal path justify it.
