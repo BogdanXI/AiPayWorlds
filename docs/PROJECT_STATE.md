@@ -1,12 +1,14 @@
 # AiPayWorlds — Project State
 
-**Snapshot:** 0.2  
+**Snapshot:** 0.3  
 **Last updated:** 2026-08-22  
 **Owner:** BogdanXI
 
 ## Current phase
 
-`0 — Discovery, architecture research and development-environment preparation`
+`Phase 2 — Dashboard Foundation (local development command center)`
+
+Phase 0 discovery/research remains the completed foundation. The current implementation workstream is the Dashboard Foundation. This does not mean the blockchain architecture has been selected.
 
 ## Completed
 
@@ -23,6 +25,9 @@
 - Generic stablecoin agent payments identified as a crowded/rapidly standardizing layer.
 - Policy-controlled autonomous spending + trust/verification identified as the leading product wedge.
 - MVP strategy changed to existing EVM infrastructure first.
+- Public repository security gate added and verified against a staged fake-secret test.
+- Dashboard prototype baseline exists in `dashboard/`.
+- Owner explicitly authorized the Dashboard Foundation workstream on 2026-08-22.
 
 ## Current product hypothesis
 
@@ -31,6 +36,22 @@ Agents should be able to discover a paid service, obtain a quote, operate under 
 Potential workflow:
 
 `discover → quote → identity/trust → policy check → authorize → pay → verify → receipt → reputation`
+
+## Dashboard Foundation scope
+
+The dashboard is a local, dependency-free development command center for the owner/operator. It is intended to expose project state, learning, memory, runs, roadmap, terminal guidance, security and research through one coherent interface.
+
+The current UI is a prototype baseline. During Phase 2 it will be incrementally replaced/refined into the long-term command-center architecture without prematurely coupling the UI to an unselected blockchain stack.
+
+Initial Phase 2 priorities:
+1. stable local shell and navigation;
+2. truthful project-state data model;
+3. Owner Book / learning workflow;
+4. recovery and memory views;
+5. security status;
+6. roadmap and decision views;
+7. research evidence views;
+8. later, live adapters for Git and blockchain infrastructure when those systems exist.
 
 ## Architecture status
 
@@ -64,13 +85,14 @@ The project should compete on a control/trust layer for autonomous spending, not
 
 ## Next objectives
 
-1. Define the first narrow user segment and concrete pain point.
-2. Design the smallest end-to-end MVP and measurable success criteria.
-3. Map x402 + AP2/A2A + ERC-8004 integration points.
-4. Threat-model the policy/spending layer.
-5. Compare existing EVM networks for the MVP.
-6. Only then install the minimum local development toolchain.
-7. Build a minimal testnet payment/escrow prototype.
+1. Implement and validate Dashboard Foundation v0.1.
+2. Define the first narrow user segment and concrete pain point.
+3. Design the smallest end-to-end MVP and measurable success criteria.
+4. Map x402 + AP2/A2A + ERC-8004 integration points.
+5. Threat-model the policy/spending layer.
+6. Compare existing EVM networks for the MVP.
+7. Only then install the minimum local development toolchain required for the selected MVP.
+8. Build a minimal testnet payment/escrow prototype.
 
 ## Blockers
 
@@ -78,4 +100,4 @@ None currently.
 
 ## Important rule
 
-Do not convert current hypotheses into permanent architecture decisions without evidence recorded in `DECISIONS.md`.
+Do not convert current hypotheses into permanent blockchain architecture decisions without evidence recorded in `DECISIONS.md`.
