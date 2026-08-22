@@ -62,6 +62,46 @@ Public repository contains project code and appropriate public documentation. Se
 
 Existing approaches such as x402 and related machine-payment protocols must be evaluated before designing a proprietary payment protocol.
 
+## D-0009 — Do not compete on generic agent payments
+
+**Status:** APPROVED for MVP strategy  
+**Date:** 2026-08-22
+
+The project will not position itself as merely another stablecoin payment rail for AI agents. Current ecosystem activity shows strong incumbents and open standards already targeting that layer.
+
+**Evidence:** x402 is being integrated into web/cloud infrastructure; Google AP2/A2A, ERC-8004 and other standards cover adjacent authorization, communication and trust functions.
+
+**Working product wedge:** policy-controlled autonomous spending plus trust, verification and auditable receipts.
+
+**Reconsider if:** research identifies a narrow payment problem where a new settlement rail is demonstrably superior.
+
+## D-0010 — MVP should run on existing EVM infrastructure first
+
+**Status:** APPROVED for MVP strategy  
+**Date:** 2026-08-22
+
+Build the first end-to-end workflow on an existing EVM test environment rather than operating a dedicated chain.
+
+**Reason:** minimizes capital and operational risk and lets us measure real product demand.
+
+**Reconsider if:** measured requirements demonstrate that existing settlement cannot meet product needs.
+
+## D-0011 — Policy-controlled spending is the primary product hypothesis
+
+**Status:** UNDER_RESEARCH  
+**Date:** 2026-08-22
+
+The first product hypothesis is a control/trust layer that lets an agent discover a service, obtain a quote, evaluate spending policy, authorize bounded payment, verify the result and retain a receipt/reputation record.
+
+**Security assumptions to test:** intent binding, spend caps, expiry, nonce/replay protection, idempotency, recipient binding, concurrency control and dispute/refund semantics.
+
+## D-0012 — Existing agent identity/trust standards must be reused where suitable
+
+**Status:** UNDER_RESEARCH  
+**Date:** 2026-08-22
+
+ERC-8004 should be evaluated for identity/reputation/validation rather than immediately designing a competing registry. AP2/A2A and x402 should likewise be evaluated as complementary standards.
+
 ## Decision template
 
 ### D-XXXX — Title
