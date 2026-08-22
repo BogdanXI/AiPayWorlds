@@ -1,94 +1,117 @@
-# AiPayWorlds Architecture
+# AiPayWorlds — Architecture
 
-## Goal
+**Status:** Research-stage architecture; not production-final.
 
-Build an EVM-compatible Layer 2 and application layer optimized for autonomous-agent payments.
-
-## MVP architecture
+## Product layer
 
 ```text
-                    Ethereum
-                       |
-                 settlement / data
-                       |
-                 +-----v------+
-                 | AiPayWorlds|
-                 |    L2      |
-                 |  OP Stack  |
-                 +-----+------+
-                       |
-          +------------+-------------+
-          |            |             |
-        USDC         Escrow      Reputation
-          |            |             |
-          +------------+-------------+
-                       |
-                 Marketplace
-                       |
-             +---------+---------+
-             |         |         |
-            APIs      GPU       Data
+Agent / User
+     ↓
+Discovery
+     ↓
+Quote / Service Terms
+     ↓
+Spending Policy
+     ↓
+Payment Authorization
+     ↓
+Settlement
+     ↓
+Service Execution
+     ↓
+Receipt / Result
+     ↓
+Reputation / History
 ```
 
-## Principles
+## Proposed modules
 
-- Start with an MVP instead of a general-purpose chain.
-- Use Ethereum as the security and settlement foundation.
-- Prefer existing stablecoin rails for payments instead of issuing a stablecoin.
-- Keep the first testnet simple and use standard ETH gas.
-- Delay any production token until there is demonstrated product utility.
-- Treat security, key management, and legal compliance as first-class requirements.
+### 1. Agent identity
+A stable identifier for an agent plus authorization metadata. The first MVP should avoid unnecessary identity complexity.
 
-## Milestones
+### 2. Service discovery
+A machine-readable description of services, pricing, capabilities and payment requirements.
 
-### Phase 0 — specification
+### 3. Policy engine
+Rules such as maximum amount per request, daily budget, approved providers, approved asset/network and human-approval thresholds.
 
-- [x] Repository created
-- [x] Project vision documented
-- [x] Initial architecture documented
-- [ ] Define MVP transaction flow
-- [ ] Define service marketplace model
+### 4. Payment adapter
+An abstraction over existing payment standards and networks. The application must not be locked to one chain or protocol.
 
-### Phase 1 — local prototype
+### 5. Settlement / escrow
+Use only where required. Simple pay-per-request flows should not be forced through escrow.
 
-- [ ] Local EVM environment
-- [ ] First escrow contract
-- [ ] Mock USDC
-- [ ] Agent-to-service payment demo
-- [ ] Basic TypeScript SDK
+### 6. Receipt
+Record the request, payment authorization, payment reference, service-result reference and relevant timestamps/nonces. Avoid sensitive data on-chain.
 
-### Phase 2 — L2 testnet
+### 7. Reputation
+A later module. Reputation must distinguish payment reliability from service quality and resist Sybil/manipulation attacks.
 
-- [ ] OP Stack deployment configuration
-- [ ] Local L2
-- [ ] Public testnet
-- [ ] Block explorer
-- [ ] RPC endpoint
-- [ ] Wallet integration
+## Blockchain boundary
 
-### Phase 3 — product
+The application should remain usable without a dedicated chain during the MVP.
 
-- [ ] Service registry
-- [ ] Marketplace API
-- [ ] Agent identity
-- [ ] Provider reputation
-- [ ] Payment SDK
-- [ ] Example AI agent
+Possible later boundary:
 
-### Phase 4 — production readiness
+```text
+Application / Agent SDK
+        ↓
+Policy + Payment Protocol
+        ↓
+Existing L2 or Dedicated L2
+        ↓
+Ethereum settlement / data availability
+```
 
-- [ ] Threat model
-- [ ] Independent security review
-- [ ] Monitoring
-- [ ] Incident response plan
-- [ ] Legal review
-- [ ] Mainnet design
+## Dedicated-chain gate
 
-## Out of scope for the first MVP
+A dedicated chain becomes justified only if evidence shows that it materially improves one or more of:
 
-- Token sale
-- Public token launch
-- Custom stablecoin
-- Permissionless validator economics
-- Complex cross-chain bridge infrastructure
-- Production custody of user funds
+- transaction economics at target volume;
+- payment latency/finality;
+- programmable policy execution;
+- interoperability;
+- privacy requirements;
+- service-specific throughput;
+- predictable fees;
+- economic security;
+- ecosystem incentives.
+
+## Security-critical properties
+
+- request/payment intent binding;
+- replay protection;
+- nonce/idempotency controls;
+- spend caps;
+- authorization expiry;
+- chain/network binding;
+- asset binding;
+- recipient binding;
+- service/resource binding;
+- concurrency safety;
+- refund/failure handling;
+- clear settlement finality assumptions.
+
+## Data principle
+
+Do not put private user data, credentials, secrets or large service payloads on-chain. Prefer hashes, references, proofs or suitable off-chain storage.
+
+## Candidate chain technologies
+
+Research before commitment:
+
+- Existing L2/application deployment
+- OP Stack
+- Arbitrum technology
+- Polygon CDK/AggLayer
+- Other rollup/appchain approaches
+
+## Non-goals for the first prototype
+
+- custom consensus;
+- custom cryptography;
+- complex native tokenomics;
+- permissionless validator economics;
+- full decentralized governance;
+- production bridge;
+- mainnet custody.
