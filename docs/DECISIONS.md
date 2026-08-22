@@ -102,6 +102,25 @@ The first product hypothesis is a control/trust layer that lets an agent discove
 
 ERC-8004 should be evaluated for identity/reputation/validation rather than immediately designing a competing registry. AP2/A2A and x402 should likewise be evaluated as complementary standards.
 
+## D-0013 — Dashboard Foundation workstream
+
+**Status:** APPROVED  
+**Date:** 2026-08-22
+
+**Problem:** The project needs a lightweight local command center that makes state, learning, recovery, research, security and roadmap visible without coupling the UI to an unselected blockchain architecture.
+
+**Alternatives:** defer the dashboard; build a heavyweight web application; build a local dependency-free command center.
+
+**Evidence:** `PROJECT_RULES.md` already defines `dashboard/` as a fully local, dependency-free development command center. A prototype baseline already exists in the repository.
+
+**Decision:** Implement Dashboard Foundation v0.1 incrementally as a local, offline-capable development command center. Treat the existing dashboard as a prototype baseline and keep adapters replaceable.
+
+**Trade-offs:** A local static foundation is less feature-rich initially than a full application stack, but it minimizes hardware/dependency risk and avoids premature architectural coupling.
+
+**Assumptions:** The dashboard is an owner/operator development tool, not the public user wallet or public explorer at this stage.
+
+**Reconsider if:** the MVP requirements demonstrate a need for a different runtime architecture or deployment model.
+
 ## Decision template
 
 ### D-XXXX — Title
