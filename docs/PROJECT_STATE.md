@@ -1,6 +1,6 @@
 # AiPayWorlds — Project State
 
-**Snapshot:** 0.1  
+**Snapshot:** 0.2  
 **Last updated:** 2026-08-22  
 **Owner:** BogdanXI
 
@@ -19,26 +19,34 @@
 - Decision: do not repartition the disk at this stage.
 - Decision: local machine is for development/testing, not a production blockchain node.
 - Long-term project-memory design established.
-
-## Current technical hypothesis
-
-A payment and trust infrastructure for autonomous software agents, potentially using an EVM-compatible L2 or dedicated chain if research proves it necessary.
+- Research checkpoint 0.2 completed.
+- Generic stablecoin agent payments identified as a crowded/rapidly standardizing layer.
+- Policy-controlled autonomous spending + trust/verification identified as the leading product wedge.
+- MVP strategy changed to existing EVM infrastructure first.
 
 ## Current product hypothesis
 
-Agents should be able to discover a paid service, operate under explicit spending limits, authorize a machine-to-machine payment, receive the service result, and retain an auditable payment/receipt trail.
+Agents should be able to discover a paid service, obtain a quote, operate under explicit spending policies, authorize bounded payment, receive the service result, and retain an auditable receipt/reputation trail.
 
-## Not approved yet
+Potential workflow:
 
-- Dedicated L1.
-- Dedicated L2 stack.
-- OP Stack.
-- Arbitrum technology.
-- Polygon CDK/AggLayer.
-- Native token.
-- Token ticker or token sale.
-- Mainnet.
-- Production custody of funds.
+`discover → quote → identity/trust → policy check → authorize → pay → verify → receipt → reputation`
+
+## Architecture status
+
+`UNDER_RESEARCH`: settlement may use an existing EVM L2 initially. A dedicated L2/appchain is optional and requires measured product justification.
+
+Candidate future stacks include:
+- OP Stack;
+- Arbitrum technology;
+- Polygon CDK/AggLayer;
+- other rollup/appchain approaches.
+
+No dedicated chain is approved.
+
+## Token status
+
+No native token is approved. No ticker, issuance schedule, sale, or token distribution has been approved.
 
 ## Hardware constraints
 
@@ -46,14 +54,23 @@ Agents should be able to discover a paid service, operate under explicit spendin
 - Mechanical HDD is slower than SSD and unsuitable as the preferred production database/node disk.
 - Local development should remain lightweight.
 
+## Current security focus
+
+The MVP must test payment-intent binding, spending caps, expiry, nonce/replay protection, idempotency, recipient binding, concurrency/race handling, quote expiry, receipt integrity and dispute/refund semantics.
+
+## Current research conclusion
+
+The project should compete on a control/trust layer for autonomous spending, not on generic blockchain payments. Existing standards such as x402, AP2/A2A and ERC-8004 should be integrated where appropriate rather than replaced without evidence.
+
 ## Next objectives
 
-1. Complete architecture and market research.
-2. Compare existing agent-payment standards and existing settlement networks.
-3. Define the smallest useful MVP.
-4. Create the full project memory/recovery system.
-5. Prepare the Ubuntu development environment only after the architecture research checkpoint.
-6. Build a minimal payment/escrow prototype before considering a dedicated chain.
+1. Define the first narrow user segment and concrete pain point.
+2. Design the smallest end-to-end MVP and measurable success criteria.
+3. Map x402 + AP2/A2A + ERC-8004 integration points.
+4. Threat-model the policy/spending layer.
+5. Compare existing EVM networks for the MVP.
+6. Only then install the minimum local development toolchain.
+7. Build a minimal testnet payment/escrow prototype.
 
 ## Blockers
 
