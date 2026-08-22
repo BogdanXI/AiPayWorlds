@@ -121,6 +121,89 @@ ERC-8004 should be evaluated for identity/reputation/validation rather than imme
 
 **Reconsider if:** the MVP requirements demonstrate a need for a different runtime architecture or deployment model.
 
+## D-0014 — Dashboard UI language model
+
+**Status:** APPROVED  
+**Date:** 2026-08-22
+
+**Problem:** The Owner needs a comfortable Russian-first interface while retaining exact technical terminology and a future international English mode.
+
+**Alternatives:** Russian only; English only; mixed labels everywhere; explicit RU/EN localization.
+
+**Evidence:** Owner explicitly requested Russian and English modes, with Russian as the primary working language and English technical terms where useful.
+
+**Decision:** Provide two complete UI locales: `ru` and `en`. Russian is the default Owner locale. Russian UI uses English technical terms in parentheses where clarity requires them; optional tooltips may expose the canonical English term.
+
+**Trade-offs:** Localization adds a small amount of architecture, but prevents later destructive UI rewrites.
+
+**Assumptions:** All user-visible strings are localization keys rather than hard-coded text.
+
+**Reconsider if:** accessibility or internationalization research shows a materially better localization model.
+
+## D-0015 — Private operator application boundary
+
+**Status:** APPROVED  
+**Date:** 2026-08-22
+
+**Problem:** The Owner wants the personal operator application separated from the public project repository and does not want the application to depend on public hosting or online services for normal operation.
+
+**Alternatives:** keep the entire application in the public repository; create a separate private application repository; keep only a local unversioned copy.
+
+**Evidence:** The application is an owner/operator control center and may later contain private adapters, local operational configuration and private workflows. The public/private boundary already requires sensitive operational material to remain outside the public repository.
+
+**Decision:** The long-term production source of the personal AiPayWorlds OS application will live in a separate private repository. The public repository remains the public project/source-of-truth repository for appropriate open code, architecture, public research and non-sensitive documentation. The private application repository is the canonical source for private operator UI and local-only adapters once created.
+
+**Trade-offs:** Two repositories add synchronization discipline. The benefit is a clear security boundary and freedom to keep private operator functionality private.
+
+**Assumptions:** A private repository will be created under the Owner's GitHub account before private application code is published remotely. Until then, do not place secrets or private operational data into the public repository.
+
+**Reconsider if:** a future open-source decision deliberately makes the operator application public.
+
+## D-0016 — Offline-first desktop application architecture
+
+**Status:** APPROVED  
+**Date:** 2026-08-22
+
+**Problem:** The Owner wants the application to work with or without internet access and to retain animations, navigation, documentation and core Earth visualization offline.
+
+**Alternatives:** browser-only application; always-online desktop client; offline-first desktop client with optional network adapters.
+
+**Evidence:** Tauri 2 provides a lightweight cross-platform desktop shell, local application assets, a Rust backend and a granular capabilities/permissions model. Its architecture relies on the operating system WebView rather than bundling a complete browser engine.
+
+**Decision:** Build AiPayWorlds OS as an offline-first desktop application. Core UI, animations, local Earth assets, books, project state and navigation must not require a network. Network integrations are optional adapters with explicit status and graceful offline fallback.
+
+**Trade-offs:** Offline asset packs increase disk usage and require asset versioning. This is accepted because reliability and independence are higher priorities.
+
+**Assumptions:** Real-time external data is available only when a network adapter is online; local time, Sun position and day/night calculations remain available offline.
+
+**Reconsider if:** platform constraints make the chosen desktop runtime unsuitable.
+
+## D-0017 — F1 desktop technology hypothesis
+
+**Status:** APPROVED FOR F1 PROTOTYPING / VALIDATION  
+**Date:** 2026-08-22
+
+**Problem:** F1 needs a modern desktop shell that is lightweight on the Owner's limited development hardware but capable of GPU-driven visual interfaces.
+
+**Alternatives:** Electron; browser/PWA; Tauri 2; native-only Rust GUI.
+
+**Evidence:** Tauri 2 is designed for small cross-platform desktop applications, supports arbitrary frontend stacks, uses Rust for backend logic, and provides capabilities/permissions for limiting access. Its security documentation also supports strict CSP and local asset loading.
+
+**Decision:** Prototype F1 with Tauri 2 + TypeScript frontend + a locally bundled 3D engine (initially Three.js/WebGL2 unless GPU capability testing justifies another renderer). This is a validation choice, not a permanent irreversible commitment.
+
+**Trade-offs:** System WebView differences require cross-platform testing. The benefit is a smaller desktop footprint and a clear security boundary compared with a full embedded browser runtime.
+
+**Assumptions:** The Linux development machine can support the required WebKit/WebGL path without becoming unusably heavy.
+
+**Reconsider if:** local performance, rendering quality, security review or cross-platform packaging proves inadequate.
+
+## D-0018 — Local asset budget
+
+**Status:** APPROVED AS A BUDGET, NOT A SIZE TARGET  
+**Date:** 2026-08-22
+
+**Decision:** Up to 40–50 GB may be allocated to local application assets/data if justified by quality and offline requirements. The application is not required to consume the entire allowance. Large binary assets must be versioned separately from ordinary source history where practical.
+
 ## Decision template
 
 ### D-XXXX — Title
