@@ -2,7 +2,7 @@
 
 > Compact recovery snapshot for any future development assistant. Factual and project-focused; not a chat transcript.
 
-**Context version:** 0.3  
+**Context version:** 0.4  
 **Last updated:** 2026-08-22  
 **Repository:** BogdanXI/AiPayWorlds  
 **Maintainer:** BogdanXI
@@ -17,9 +17,15 @@ Do not build a blockchain for its own sake. Prove the product need first. A dedi
 
 ## Current phase
 
-Discovery + architecture research + memory/privacy foundation + environment preparation.
+Phase 2 — Dashboard Foundation. Phase 0 discovery/research is the completed foundation. Blockchain architecture remains under research.
 
-## Current product hypothesis
+## Current dashboard direction
+
+AiPayWorlds OS is an owner/operator desktop command center. The long-term production application is intended to live in a separate private repository. The public repository remains the public project/source-of-truth repository for appropriate open code, architecture, public research and non-sensitive documentation.
+
+F1 is the foundation: bilingual RU/EN UI, stable navigation, central Earth Engine, theme engine, animation budget, offline-first operation, local books/learning, recovery/security views and replaceable adapters.
+
+## Product hypothesis
 
 The strongest current wedge is **policy-controlled autonomous spending plus trust/verification**.
 
@@ -86,11 +92,21 @@ No native token approved. No ticker, issuance, sale or distribution approved. An
 
 Public: source code, public architecture, public documentation, verified research, public test deployments, release notes and truthful required disclosures.
 
-Private/outside this public repository: credentials, seed phrases, private keys, personal data, confidential contracts, private negotiations, unpublished vulnerability details and other sensitive information.
+Private/outside this public repository: credentials, seed phrases, private keys, personal data, confidential contracts, private negotiations, unpublished vulnerability details and other sensitive information. The personal operator application is also intended to move to a separate private repository once that repository is created.
 
 Do not store private project memory in this public repository merely behind `.gitignore`. Keep sensitive operational memory in a separate private location.
 
 Do not falsely claim authorship, audits, partnerships, funding or security properties. AI assistance is internal tooling; legally required or materially relevant disclosures must remain truthful.
+
+## Dashboard F1 architecture
+
+Target desktop shell: Tauri 2, with TypeScript UI and a locally bundled 3D engine, initially Three.js/WebGL2 subject to local GPU validation. This is an F1 validation choice, not an irreversible chain or product architecture decision.
+
+Required UI locales: `ru` and `en`, with Russian as Owner default. Technical English terms may appear in parentheses or tooltips.
+
+Core operation is offline-first. Local time, Sun position, day/night and bundled Earth assets work without network. GitHub, RPC, weather and other live sources are optional adapters with explicit OFFLINE/LAST KNOWN states.
+
+Owner approved an asset/data budget of up to 40–50 GB, but the application must not consume that space without a quality or offline-use justification.
 
 ## Memory system
 
@@ -101,6 +117,7 @@ Do not falsely claim authorship, audits, partnerships, funding or security prope
 `RESEARCH_2026-08.md` and future research files = dated evidence.
 `MEMORY_AND_PRIVACY.md` = public/private memory policy.
 `MEMORY_RECOVERY_RU.md` = Russian recovery procedure.
+`DASHBOARD_F1_FOUNDATION_RU.md` = current F1 architecture baseline.
 
 Update the relevant files after material milestones, architecture decisions, research/security findings and releases; during active development perform at least one state checkpoint per week.
 
@@ -113,6 +130,12 @@ Update the relevant files after material milestones, architecture decisions, res
 - Generic agent-payment rail as product: REJECTED for MVP strategy.
 - Policy-controlled spending/trust layer: UNDER_RESEARCH.
 - Native token: unapproved.
+- Dashboard Foundation: APPROVED.
+- RU/EN dashboard localization: APPROVED.
+- Private operator application repository: APPROVED direction.
+- Offline-first desktop architecture: APPROVED.
+- Tauri 2 + TypeScript + local 3D engine: APPROVED for F1 prototyping/validation.
+- Local asset budget up to 40–50 GB: APPROVED as a budget, not a target size.
 - No disk repartitioning: APPROVED.
 - Local PC is development only: APPROVED.
 
@@ -135,7 +158,8 @@ Update the relevant files after material milestones, architecture decisions, res
 - What exact protocol primitives justify a dedicated chain?
 - Which chain framework best satisfies those primitives?
 - What legal structure/jurisdiction is appropriate if the project becomes a commercial crypto network?
+- Which private GitHub repository name/location will hold the operator application?
 
 ## Next action
 
-Research and rank several real-world markets where customers already pay for a painful service, then select one narrow wedge and define a measurable MVP. In parallel, build the formal chain-comparison matrix. Do not deploy or issue a token yet.
+F1 implementation and validation: establish the desktop shell, bilingual localization, stable navigation, theme/animation infrastructure, offline asset model, first Earth scene and deterministic build/run checks. Do not deploy or issue a token.
